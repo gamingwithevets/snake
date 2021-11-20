@@ -4,7 +4,7 @@ It uses the Curses library to display color.
 
 # System requirements
 For Windows:
-You need Python 3.6 - *3.9.9* and Windows 7+ (Windows 8+ for Python 3.9) with the *windows-curses* package installed.
+You need Python 3.6 - *3.9.9* and Windows 7+ (Windows 8+ for Python 3.9) with the *windows-curses* package installed.<br>
 Now, you may be wondering, "Why not Python 3.10 instead? That's the newest version!"
 And you're right. But, as of 2021, no Curses library has been made for 3.10, and so, using pip to install *windows-curses*... is pretty much impossible. You can read more [here](https://stackoverflow.com/questions/69927587/python-curses-module-for-windows-cant-install).
   
