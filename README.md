@@ -1,5 +1,6 @@
 # Basic info
 Snake, made in 100% Python.<br>
+It's a very simple script. ~~In fact, everyone can make one of these by themselves using tutorials and some Python knowledge.~~
 It uses the Curses library to display color.
 
 # menu.py
