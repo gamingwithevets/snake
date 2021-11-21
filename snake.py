@@ -134,8 +134,8 @@ def maingame(score, counter, snakebump, turn_head, dead_border, maxscore):
 				win.addstr(0, 2, 'Key: ' + str(key_str) + '  ' + 'Prev. Key: ' + str(prev_key_str) + ' ',  curses.color_pair(4))
 			elif counter == 3:
 					getcontext().prec = 3
-					speed_str = Decimal(157) - Decimal(speed)
-					win.addstr(0, 2, 'Speed: ~' + str(speed_str) + ' tiles/s ',  curses.color_pair(4))    
+					speed_str = Decimal(15) - (Decimal(speed) / Decimal(20))
+					win.addstr(0, 2, 'Speed: ' + str(speed_str) + ' tiles/s ',  curses.color_pair(4))    
 			else:
 				win.addstr(0, 2, 'Key: ' + str(key) + '  ' + 'Prev. Key: ' + str(prev_key) + ' ',  curses.color_pair(4))    
 		win.timeout(speed) #increase speed
