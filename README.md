@@ -1,6 +1,6 @@
 # Basic info
 Snake, made in 100% Python.<br>
-It's a very simple script. ~~In fact, everyone can make one of these by themselves using tutorials and some Python knowledge.~~
+It's a very simple script. ~~In fact, everyone can make one of these by themselves using tutorials and some Python knowledge.~~<br>
 It uses the Curses library to display color.
 
 # menu.py
@@ -9,7 +9,8 @@ It gives you every flag the game has to offer, and it doesn't lie.<br>
 I can't spoil all the flags, so go check it out!
 
 # snake.py
-*snake.py* is the game itself. If you don't run it through the launcher, it'll start with the default settings, which the launcher also loads on startup. You can modify the startup variables manually in the code. But remember: this is permanent when you run the script!
+*snake.py* is the game itself. If you don't run it through the launcher, it'll start with the default settings, which the launcher also loads on startup.<br>
+You can modify the startup variables manually in the code. But remember: this will ***permanently*** change settings in the game, so do it at your own risk!
 
 # System requirements
 For Windows:<br>
