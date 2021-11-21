@@ -2,39 +2,78 @@ import os
 from random import randint
 from decimal import *
 
-# game logic
+def clear():
+	if os.name == 'nt':
 
-# score set when starting the game. do not change unless you like to cheat!
-score = 0
+		 _ = os.system('cls')
+	else:
+		_ = os.system('clear')
 
-# 0: score (default)
-# 1: key and prev. key counter
-# 2: same as 1, but translated into readable inputs
-# 3: snake speed
-counter = 0
-
-# set to zero to make the snake able to run over itself
-snakebump = 1
-
-# set to 0 to disable turning around
-turn_head = 0
-
-# 0: lets the snake go through the border to the other side
-# 1: the border kills the snake
-dead_border = 1
-
-# max score for Limited Apples mode; set to 0 or lower to switch to Classic mode
-maxscore = 0
-
-def maingame(score, counter, snakebump, turn_head, dead_border, maxscore):
+if __name__ == "__main__":
+	import time
+	clear()
+	print("   _____ _   _          _  ________ \n  / ____| \\ | |   /\\   | |/ /  ____|")
+	time.sleep(0.5)
+	print(" | (___ |  \\| |  /  \\  | ' /| |__   \n  \\___ \\| . ` | / /\\ \\ |  < |  __|  ")
+	time.sleep(0.5)
+	print("  ____) | |\\  |/ ____ \\| . \\| |____ \n |_____/|_| \\_/_/    \\_\\_|\\_\\______|")
+	print("              in Python")
+	time.sleep(0.5)
+	print("\nChecking for Curses library...", end = "")
+	time.sleep(1)
 	try:
 		import curses
 	except Exception:
 		if os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python39") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python38") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python37") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python36") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python35"):
-			print("Hey you! You need the Curses library! Just use pip to install the module and you're done!\nSimple as that! Now scram!!!!")
+			print("  ERROR\nHey you! You need the Curses library! Just use pip to install the module and you're done!\nSimple as that! Now scram!!!!")
 		else:
-			print("Hey you! You need the Curses library! As of 2021, Python 3.10 doesn't have that yet.\nSo, you need Python 3.6-3.9. Now scram!!!!")
-		return;
+			print("  ERROR\nHey you! You need the Curses library! As of 2021, Python 3.10 doesn't have that yet.\nSo, you need Python 3.6-3.9. Now scram!!!!")
+		input()
+		exit()
+
+	print("  OK\nLoading default settings...", end = "")
+	time.sleep(1.5)
+	# game logic
+
+	# score set when starting the game. do not change unless you like to cheat!
+	score = 0
+
+	# 0: score (default)
+	# 1: key and prev. key counter
+	# 2: same as 1, but translated into readable inputs
+	# 3: snake speed
+	counter = 0
+
+	# set to zero to make the snake able to run over itself
+	snakebump = 1
+
+	# set to 0 to disable turning around
+	turn_head = 0
+
+	# 0: lets the snake go through the border to the other side
+	# 1: the border kills the snake
+	dead_border = 1
+
+	# max score for Limited Apples mode; set to 0 or lower to switch to Classic mode
+	maxscore = 0
+
+	print("  OK\nLoading game...", end = "")
+	time.sleep(1.5)
+else:
+	try:
+		import curses
+	except Exception:
+		if os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python39") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python38") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python37") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python36") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python35"):
+			print("  ERROR\nHey you! You need the Curses library! Just use pip to install the module and you're done!\nSimple as that! Now scram!!!!")
+		else:
+			print("  ERROR\nHey you! You need the Curses library! As of 2021, Python 3.10 doesn't have that yet.\nSo, you need Python 3.6-3.9. Now scram!!!!")
+		input()
+		clear()
+		exit()
+
+def maingame(score, counter, snakebump, turn_head, dead_border, maxscore):
+	import curses
+
 	curses.initscr()
 
 	# init colors
@@ -95,8 +134,8 @@ def maingame(score, counter, snakebump, turn_head, dead_border, maxscore):
 				win.addstr(0, 2, 'Key: ' + str(key_str) + '  ' + 'Prev. Key: ' + str(prev_key_str) + ' ',  curses.color_pair(4))
 			elif counter == 3:
 					getcontext().prec = 3
-					speed_str = Decimal(speed) / Decimal(20)
-					win.addstr(0, 2, 'Speed: ' + str(speed_str) + ' tile(s)/s ',  curses.color_pair(4))    
+					speed_str = Decimal(157) - Decimal(speed)
+					win.addstr(0, 2, 'Speed: ~' + str(speed_str) + ' tiles/s ',  curses.color_pair(4))    
 			else:
 				win.addstr(0, 2, 'Key: ' + str(key) + '  ' + 'Prev. Key: ' + str(prev_key) + ' ',  curses.color_pair(4))    
 		win.timeout(speed) #increase speed
@@ -167,6 +206,8 @@ def maingame(score, counter, snakebump, turn_head, dead_border, maxscore):
 	if key == ESC:
 		print(f"Game exited with ESCAPE/CTRL+[.")
 		print(f"Score: {score}")
+		print("\nPress Enter to exit the game.")
+		input()
 		return
 
 	if maxscore > 0:
@@ -174,7 +215,16 @@ def maingame(score, counter, snakebump, turn_head, dead_border, maxscore):
 		else: print(f"You won!")
 	else:  print(f"You died!")
 	print(f"Score: {score}")
+	print("\nPress Enter to exit the game.")
+	input()
+	if __name__ != "__main__": clear()
 	return
 
 if __name__ == "__main__":
+	print("  OK\nDone!", end = "")
+	time.sleep(1)
+	if os.name == 'nt':
+		 _ = os.system('cls')
+	else:
+		_ = os.system('clear')
 	maingame(score, counter, snakebump, turn_head, dead_border, maxscore)

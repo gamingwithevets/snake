@@ -1,19 +1,40 @@
 import os
 import traceback
-import snake
-
-score = 0
-counter = 0
-snakebump = 1
-turn_head = 0
-dead_border = 1
-maxscore = 100
+import time
 
 def clear():
 	if os.name == 'nt':
 		 _ = os.system('cls')
 	else:
 		_ = os.system('clear')
+
+clear()
+print("   _____ _   _          _  ________ \n  / ____| \\ | |   /\\   | |/ /  ____|")
+time.sleep(0.5)
+print(" | (___ |  \\| |  /  \\  | ' /| |__   \n  \\___ \\| . ` | / /\\ \\ |  < |  __|  ")
+time.sleep(0.5)
+print("  ____) | |\\  |/ ____ \\| . \\| |____ \n |_____/|_| \\_/_/    \\_\\_|\\_\\______|")
+print("              in Python")
+time.sleep(1)
+print("\nChecking for Curses library...", end = "")
+time.sleep(1)
+try:
+	import snake
+except Exception:
+	print("  ERROR\nWhere is snake.py? Did you forget to copy it into the same folder as this script, or did you rename or delete it?")
+	input()
+	clear()
+	exit()
+print("  OK\nSetting up variables...", end = "")
+time.sleep(1.5)
+score = 0
+counter = 0
+snakebump = 1
+turn_head = 0
+dead_border = 1
+maxscore = 100
+print("  OK\nDefining functions...", end = "")
+time.sleep(1.5)
 
 def set_default(mode):
 	if mode == 0 or mode == 1 or mode == 3:
@@ -27,7 +48,7 @@ def set_score(lastscore):
 	clear()
 	scoretoset = 0
 	print("PYTHON SNAKE GAME LAUNCHER")
-	print("Okay, type in the score you wanna start with.\nIt must be at least 0, or your score won't be set.\n")
+	print("Okay, type in the score you wanna start with.\nIt must be at least 0, or your score won't be set.\nPlease note: this does not affect the snake's length!\n")
 	scoretoset = input("Score: ")
 	scoretoset = int(scoretoset)
 	if scoretoset < 0:
@@ -116,14 +137,13 @@ def launch_game(score, counter, snakebump, turn_head, dead_border, maxscore):
 				clear()
 				choice2 = 0
 				print("PYTHON SNAKE GAME LAUNCHER")
-				print("Classic mode:\nPlay Snake forever!... until you die or hit ESCAPE.\n\n\n[1] Play  [2] Back\n")
+				print("Classic mode:\nPlay Snake forever!... until you die or hit ESCAPE.\n\n[1] Play  [2] Back\n")
 				choice2 = input("Your choice: ")
 				choice2 = int(choice2)
 				if choice2 == 2: break
 				else:
 					clear()
 					snake.maingame(score, counter, snakebump, turn_head, dead_border, 0)
-				input("\nPress Enter to return.")
 				return
 		if choice == 2:
 			while True:
@@ -141,11 +161,13 @@ def launch_game(score, counter, snakebump, turn_head, dead_border, maxscore):
 					if score >= maxscore:
 						snake.maingame(score, counter, snakebump, turn_head, dead_border, score + 1)
 					else: snake.maingame(score, counter, snakebump, turn_head, dead_border, maxscore)
-				input("\nPress Enter to return.")
 				return
 		else:
 			pass
 	return
+
+print("  OK\nDone!")
+time.sleep(1)
 
 while True:
 	clear()
@@ -196,4 +218,6 @@ while True:
 		print("My my! An error occured! Screw you!\n")
 		print(traceback.format_exc())
 		print("If this error isn't a ValueError, please contact the creator at thenewgwe@gmail.com")
-		exit()
+		print("\nPress any key to return to the menu.")
+		input()
+		pass
