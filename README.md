@@ -3,7 +3,7 @@ Snake, made in 100% Python.<br>
 These are very simple scripts. ~~In fact, everyone can make one of these by themselves using tutorials and some Python knowledge.~~<br>
 It uses the Curses library to display color.<br><br>
 Main game code from [this tutorial](https://youtu.be/M_npdRYD4K0) by [Python Engineer](https://www.youtube.com/channel/UCbXgNpp0jedKWcQiULLbDTA).<br>
-Other code written by SJ Studio in cooperation with GamingWithEvets Inc.
+Other code written by SJ Studio in cooperation with GamingWithEvets Inc.<br>
 © 2021 GamingWithEvets Inc. & SJ Studio. All rights go to their respective owners.
 
 # menu.py
