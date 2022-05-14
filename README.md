@@ -17,7 +17,7 @@ You can modify the startup variables manually in the code. But remember: this wi
 
 # System requirements
 For Windows:<br>
-You need Python ~~3.6 - *3.9.9*~~ 3.6+ and Windows 7+ (Windows 8+ for Python 3.9+) with the Curses module installed.<br>
+You need Python ~~3.6 - *3.9.9*~~ 3.6+ and Windows 7+ (Windows 8+ for Python 3.9+) with the Curses library installed.<br>
 ~~Now, you may be wondering, "Why not Python 3.10 instead? That's the newest version!"<br>
 And you're right. But, as of 2021, __no Curses library has been made for 3.10__, and so, using *pip* to install *windows-curses*... is pretty much impossible. You can read more [here](https://stackoverflow.com/questions/69927587/python-curses-module-for-windows-cant-install).~~
 
