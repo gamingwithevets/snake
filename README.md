@@ -1,3 +1,5 @@
+NOTE: This Snake project is no longer maintained. Please view [the new, upgraded version](https://github.com/gamingwithevets/sneky).
+
 # Basic info
 Snake, made in 100% Python.<br>
 These are very simple scripts. ~~In fact, everyone can make one of these by themselves using tutorials and some Python knowledge.~~<br>
