@@ -24,10 +24,7 @@ if __name__ == "__main__":
 	try:
 		import curses
 	except Exception:
-		if os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python39") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python38") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python37") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python36") or os.path.exists(os.getenv('LOCALAPPDATA') + "\\Programs\\Python\\Python35"):
-			print("  ERROR\nHey you! You need the Curses library! Just use pip to install the module and you're done!\nSimple as that! Now scram!!!!")
-		else:
-			print("  ERROR\nHey you! You need the Curses library! As of 2021, Python 3.10 doesn't have that yet.\nSo, you need Python 3.6-3.9. Now scram!!!!")
+		print("  ERROR\nHey you! You need the Curses library! Just use pip to install the module and you're done!\nSimple as that! Now scram!!!!")
 		input()
 		exit()
 
